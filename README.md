@@ -46,8 +46,8 @@ The `classifications` setting list items contains the following elements:
 
 | Setting             | Required | Default | Description |
 |:--------------------|:--------:|:-------:|:------------|
-| name                | True    | True    | User-defined name of the classification           |
-| id                  | True    | True    | The classification ID, found in the URL. ex "131" for municipalities |
+| name                | True    | None    | User-defined name of the classification           |
+| id                  | True    | None    | The classification ID, found in the URL. ex "131" for municipalities |
 | valid_at            | False    | None    | Date string for retreiving codes valid at given date |
 | valid_from          | False    | None    | Date string for retrieving codes valid on or after given date |
 | valid_to            | False    | 2099-12-31    | Date string for retrieving codes valid on or before given date |
@@ -62,8 +62,8 @@ The `correspondences` setting list items contains the following elements:
 
 | Setting             | Required | Default | Description |
 |:--------------------|:--------:|:-------:|:------------|
-| name                | True    | True    | User-defined name of the classification           |
-| source_id           | True    | True    | The source classification ID, found in the URL. ex "131" for municipalities |
+| name                | True    | None    | User-defined name of the classification           |
+| source_id           | True    | None    | The source classification ID, found in the URL. ex "131" for municipalities |
 | target_id           | True    | None    | The target classification ID, found in the URL. ex "103" for sub-municipalities |
 | valid_from          | True    | None    | Date string for retrieving codes valid on or after given date |
 | valid_to            | False    | 2099-12-31    | Date string for retrieving codes valid on or before given date |
