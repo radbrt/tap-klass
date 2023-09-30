@@ -36,8 +36,8 @@ class ClassificationStream(klassStream):
 
         if self.classification.get("valid_at"):
             argument = f"codesAt.json?date={self.classification.get('valid_at')}"
-        elif self.classification.get("valid_from") and self.classification.get("valid_to"):
-            argument = f"codes.json?from={self.classification.get('valid_from')}&to={self.classification.get('valid_to')}"
+        elif self.classification.get("valid_from"):
+            argument = f"codes.json?from={self.classification.get('valid_from')}&to={self.classification.get('valid_to', '2099-12-31')}"
         else:
             raise ValueError("Missing valid_at or valid_from and valid_to")
         
