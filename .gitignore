@@ -139,3 +139,4 @@ dmypy.json
 # Debug stuff
 config/
 output/
+plugins/

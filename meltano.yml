@@ -10,20 +10,18 @@ plugins:
     namespace: "tap_klass"
     pip_url: -e .
     capabilities:
-    - state
     - catalog
     - discover
     - about
     - stream-maps
     config:
-      start_date: '2010-01-01T00:00:00Z'
+      classifications:
+        - name: kommuner
+          id: '131'
+          valid_at: '2020-01-01'
     settings:
-    # TODO: To configure using Meltano, declare settings and their types here:
-    - name: username
-    - name: password
-      kind: password
-    - name: start_date
-      value: '2010-01-01T00:00:00Z'
+    - name: classifications
+      kind: array
   loaders:
   - name: target-jsonl
     variant: andyh1203
