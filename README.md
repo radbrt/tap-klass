@@ -26,7 +26,6 @@ pipx install git+https://github.com/radbrt/tap-klass.git
 * `about`
 * `stream-maps`
 * `schema-flattening`
-* `batch`
 
 #### Settings
 
