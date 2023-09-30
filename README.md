@@ -1,6 +1,6 @@
 # tap-klass
 
-`tap-klass` is a Singer tap for Statistics Norway's Klass API for codes and classifications.
+`tap-klass` is a Singer tap for Statistics Norway's Klass API for codes and classifications: https://www.ssb.no/en/klass/
 
 Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 
