@@ -51,6 +51,45 @@ class Tapklass(Tap):
                     )
                 )
             )
+        ),
+        th.Property(
+            "correspondences",
+            th.ArrayType(
+                th.ObjectType(
+                    th.Property(
+                        "name", 
+                        th.StringType, 
+                        required=True, 
+                        description="Given name of the correspondence"
+                    ),
+                    th.Property(
+                        "source_id", 
+                        th.StringType, 
+                        required=True
+                    ),
+                    th.Property(
+                        "target_id", 
+                        th.StringType, 
+                        required=True
+                    ),
+                    th.Property(
+                        "valid_from", 
+                        th.StringType,
+                        required=True
+                    ),
+                    th.Property(
+                        "valid_to", 
+                        th.StringType,
+                        required=True
+                    ),
+                    th.Property(
+                        "language",
+                        th.StringType,
+                        default="nb",
+                        allowed_values=["nb", "nn", "en"],
+                    )
+                )
+            )
         )
     ).to_dict()
 
@@ -61,12 +100,16 @@ class Tapklass(Tap):
             A list of discovered streams.
         """
 
-        for classification in self.config["classifications"]:
+        for classification in self.config.get("classifications", []):
             yield streams.ClassificationStream(
                 tap=self,
                 classification=classification
             )
 
-
+        for correspondence in self.config.get("correspondences", []):
+            yield streams.CorrespondenceStream(
+                tap=self,
+                correspondence=correspondence
+            )
 if __name__ == "__main__":
     Tapklass.cli()

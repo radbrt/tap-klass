@@ -19,8 +19,16 @@ plugins:
         - name: kommuner
           id: '131'
           valid_from: '2020-01-01'
+      correspondences:
+        - name: kommuner_til_bydel
+          source_id: '131'
+          target_id: '103'
+          valid_from: '2020-01-01'
+          valid_to: '2021-12-31'
     settings:
     - name: classifications
+      kind: array
+    - name: correspondences
       kind: array
   loaders:
   - name: target-jsonl

@@ -33,26 +33,43 @@ pipx install git+https://github.com/radbrt/tap-klass.git
 | Setting             | Required | Default | Description |
 |:--------------------|:--------:|:-------:|:------------|
 | classifications     | False    | None    | List of classifications with options            |
+| correspondences     | False    | None    | List of correspondences with options            |
 | stream_maps         | False    | None    | Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html). |
 | stream_map_config   | False    | None    | User-defined config values to be used within map expressions. |
 | flattening_enabled  | False    | None    | 'True' to enable schema flattening and automatically expand nested properties. |
 | flattening_max_depth| False    | None    | The max depth to flatten schemas. |
-| batch_config        | False    | None    |             |
 
+
+##### Classifications
 
 The `classifications` setting list items contains the following elements:
 
 | Setting             | Required | Default | Description |
 |:--------------------|:--------:|:-------:|:------------|
-| name                | False    | True    | User-defined name of the classification           |
-| id                  | False    | True    | The classification ID, found in the URL. ex "131" for municipalities |
+| name                | True    | True    | User-defined name of the classification           |
+| id                  | True    | True    | The classification ID, found in the URL. ex "131" for municipalities |
 | valid_at            | False    | None    | Date string for retreiving codes valid at given date |
 | valid_from          | False    | None    | Date string for retrieving codes valid on or after given date |
-| valid_to            | False    | 2099-12-31    | The max depth to flatten schemas. |
+| valid_to            | False    | 2099-12-31    | Date string for retrieving codes valid on or before given date |
 | language            | False    | nb      | The language to be returned. Either nb (Norwegian Bokmål), nn (Norwegian Nynorsk) or en (English) |
 
 
 Either `valid_at` or `valid_to` must be specified. If `valid_at` is specified, `valid_to` will be ignored.
+
+##### Correspondences
+
+The `correspondences` setting list items contains the following elements:
+
+| Setting             | Required | Default | Description |
+|:--------------------|:--------:|:-------:|:------------|
+| name                | True    | True    | User-defined name of the classification           |
+| source_id           | True    | True    | The source classification ID, found in the URL. ex "131" for municipalities |
+| target_id           | True    | None    | The target classification ID, found in the URL. ex "103" for sub-municipalities |
+| valid_from          | True    | None    | Date string for retrieving codes valid on or after given date |
+| valid_to            | False    | 2099-12-31    | Date string for retrieving codes valid on or before given date |
+| language            | False    | nb      | The language to be returned. Either nb (Norwegian Bokmål), nn (Norwegian Nynorsk) or en (English) |
+
+
 
 A full list of supported settings and capabilities is available by running: `tap-klass --about`
 
