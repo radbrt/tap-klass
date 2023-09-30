@@ -48,9 +48,11 @@ The `classifications` setting list items contains the following elements:
 | id                  | False    | True    | The classification ID, found in the URL. ex "131" for municipalities |
 | valid_at            | False    | None    | Date string for retreiving codes valid at given date |
 | valid_from          | False    | None    | Date string for retrieving codes valid on or after given date |
-| valid_to            | False    | None    | The max depth to flatten schemas. |
+| valid_to            | False    | 2099-12-31    | The max depth to flatten schemas. |
 | language            | False    | nb      | The language to be returned. Either nb (Norwegian Bokmål), nn (Norwegian Nynorsk) or en (English) |
 
+
+Either `valid_at` or `valid_to` must be specified. If `valid_at` is specified, `valid_to` will be ignored.
 
 A full list of supported settings and capabilities is available by running: `tap-klass --about`
 
